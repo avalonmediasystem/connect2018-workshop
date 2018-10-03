@@ -8,7 +8,45 @@ Link to presentation slides
 
 ## Getting Started
 
-Instructions for setting up environment
+### Docker
+
+1. Install [Docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
+
+1. `git clone https://github.com/avalonmediasystem/connect2018-workshop.git`
+
+1.  `cd connect2018-workshop`
+
+1. Use current user as the user for Avalon container `` export AVALON_UID=`id -u` AVALON_GID=`id -g` ``
+
+1. `docker-compose up`
+
+1. Boostrap the environment:
+```ruby
+docker-compose exec avalon /bin/bash
+# In avalon container
+rails hyrax:default_admin_set:create # If necessary
+rails c
+```
+
+### Manual instructions
+
+1. Clone this repository
+
+1. Install dependencies:
+ - https://github.com/samvera/hyrax#characterization
+ - https://github.com/samvera/hyrax#transcoding
+ - https://github.com/samvera/hyrax#redis
+ - Mediainfo:
+    - On Mac OS X: `brew install mediainfo`
+    - Otherwise see: https://mediaarea.net/en/MediaInfo/Download
+
+1. Bootstrap the environment:
+```ruby
+bundle install
+rails db:migrate
+rails hydra:server
+rails hyrax:default_admin_set:create
+```
 
 ## Introducing the Hyrax-iiif_av Plugin
 
