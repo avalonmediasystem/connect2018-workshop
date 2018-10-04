@@ -40,7 +40,7 @@ GEM
       activesupport (>= 3.0.0)
       rdf (>= 2.0.2, < 4.0)
       rdf-vocab (>= 2.0, < 4.0)
-    active_encode (0.2)
+    active_encode (0.4)
       rails
     activejob (5.1.6)
       activesupport (= 5.1.6)
@@ -69,7 +69,7 @@ GEM
       activerecord (>= 4.0.0, < 5.3)
     aws-eventstream (1.0.1)
     aws-partitions (1.105.0)
-    aws-sdk-core (3.28.0)
+    aws-sdk-core (3.29.0)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -295,7 +295,7 @@ GEM
       hydra-file_characterization (~> 0.3, >= 0.3.3)
       hydra-pcdm (>= 0.9)
       om (~> 3.1)
-    hyrax (2.3.2)
+    hyrax (2.3.3)
       active-fedora (~> 11.5, >= 11.5.2)
       almond-rails (~> 0.1)
       awesome_nested_set (~> 3.1)
@@ -315,7 +315,7 @@ GEM
       hydra-editor (>= 3.3, < 5.0)
       hydra-head (>= 10.5.0)
       hydra-works (>= 0.16, < 2.0)
-      iiif_manifest (>= 0.3, < 0.5)
+      iiif_manifest (>= 0.3, < 0.6)
       jquery-datatables-rails (~> 3.4)
       jquery-ui-rails (~> 6.0)
       json-schema
@@ -345,7 +345,7 @@ GEM
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
-    iiif_manifest (0.4.0)
+    iiif_manifest (0.5.0)
       activesupport (>= 4)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -484,6 +484,7 @@ GEM
       rails (> 3.2.0)
     orm_adapter (0.5.0)
     os (1.0.0)
+    pg (1.1.3)
     posix-spawn (0.3.13)
     power_converter (0.1.2)
     public_suffix (3.0.3)
@@ -684,11 +685,6 @@ GEM
     sparql-client (3.0.0)
       net-http-persistent (>= 2.9, < 4)
       rdf (~> 3.0)
-    spring (2.0.2)
-      activesupport (>= 4.2)
-    spring-watcher-listen (2.0.1)
-      listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -700,7 +696,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.13)
     stomp (1.4.4)
     sxp (1.0.1)
       rdf (>= 2.2, < 4.0)
@@ -746,10 +741,11 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.6)
   fcrepo_wrapper
-  hyrax (= 2.3.2)
+  hyrax (= 2.3.3)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  pg
   puma (~> 3.7)
   rails (~> 5.1.6)
   riiif (~> 1.1)
@@ -758,13 +754,10 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   solr_wrapper (>= 0.3)
-  spring
-  spring-watcher-listen (~> 2.0.0)
-  sqlite3
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.5
