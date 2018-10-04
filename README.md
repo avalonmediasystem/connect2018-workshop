@@ -20,32 +20,21 @@ Link to presentation slides
 
 1. `docker-compose up`
 
-1. Boostrap the environment:
-```ruby
-docker-compose exec avalon /bin/bash
-# In avalon container
-rails hyrax:default_admin_set:create # If necessary
-rails c
+1. Update MediaInfo
+```bash
+docker-compose exec --user root avalon /bin/bash
+wget https://mediaarea.net/repo/deb/repo-mediaarea_1.0-6_all.deb && dpkg -i repo-mediaarea_1.0-6_all.deb && apt-get update
+apt-get -y install mediainfo
+exit
 ```
 
-### Manual instructions
+1. Create an admin set in the UI
 
-1. Clone this repository
-
-1. Install dependencies:
- - https://github.com/samvera/hyrax#characterization
- - https://github.com/samvera/hyrax#transcoding
- - https://github.com/samvera/hyrax#redis
- - Mediainfo:
-    - On Mac OS X: `brew install mediainfo`
-    - Otherwise see: https://mediaarea.net/en/MediaInfo/Download
-
-1. Bootstrap the environment:
-```ruby
-bundle install
-rails db:migrate
-rails hydra:server
-rails hyrax:default_admin_set:create
+1. Boostrap the environment:
+```bash
+docker-compose exec avalon /bin/bash
+# Fix bundler config
+bundle config --delete path
 ```
 
 ## Introducing the Hyrax-iiif_av Plugin
