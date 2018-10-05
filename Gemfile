@@ -69,3 +69,4 @@ group :development, :test do
 end
 
 gem 'riiif', '~> 1.1'
+gem 'rack-proxy', '~> 0.6.5'

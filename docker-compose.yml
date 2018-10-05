@@ -61,7 +61,7 @@ services:
       - solr
       - redis
     environment:
-      - HOME=/home/app
+      - HOME=/home/app/gems #workaround for bundler issue with homeless user
       - BUNDLE_PATH=/home/app/gems
       - REDIS_HOST=redis
       - DATABASE_URL=postgresql://postgres@db/postgres         
