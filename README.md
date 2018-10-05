@@ -44,7 +44,11 @@ Link to presentation slides will eventually go here.
 1. Ingest a video file into a new work and look at native html5 player and fairly empty IIIF Presentation 2.0 manifest.
 Let's make it more awesomer! :unicorn:
 
-2. Enter the rails container: `docker-compose exec avalon /bin/bash`
+2. Enter the rails container from a second terminal: 
+```
+export AVALON_UID=`id -u` AVALON_GID=`id -g`
+docker-compose exec avalon /bin/bash
+```
 
 3. Add `hyrax-iiif_av` to `Gemfile`:
 ```
@@ -104,7 +108,11 @@ Go back to video work and see the new player and inspect the IIIF Presentation 3
 
 ### Let's do it!
 
-1. Enter the rails container: `docker-compose exec avalon /bin/bash`
+1. Enter the rails container from a second terminal: 
+```
+export AVALON_UID=`id -u` AVALON_GID=`id -g`
+docker-compose exec avalon /bin/bash
+```
 
 2. Add `hyrax-active_encode` to `Gemfile`:
 ```
