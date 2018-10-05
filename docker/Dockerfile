@@ -3,9 +3,9 @@ MAINTAINER  Phuong Dinh <pdinh@indiana.edu>
 RUN         curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
          && echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
          && curl -sL http://deb.nodesource.com/setup_8.x | bash - \
-         && echo "deb http://ftp.uk.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
- 
-RUN         apt-get update && apt-get upgrade -y build-essential nodejs \
+         && echo "deb http://ftp.uk.debian.org/debian jessie-backports main" >> /etc/apt/sources.list \
+         && wget https://mediaarea.net/repo/deb/repo-mediaarea_1.0-6_all.deb && dpkg -i repo-mediaarea_1.0-6_all.deb \
+         && apt-get update && apt-get upgrade -y build-essential nodejs \
          && apt-get install -y --force-yes -t jessie-backports \
             x264 \
             cmake \
@@ -16,16 +16,14 @@ RUN         apt-get update && apt-get upgrade -y build-essential nodejs \
             yarn \
             vim \
             graphicsmagick \
+            mediainfo \
             zip \
             unzip \
             openjdk-8-jre-headless \
             ca-certificates-java \
          && rm -rf /var/lib/apt/lists/*
 
-RUN      wget https://mediaarea.net/repo/deb/repo-mediaarea_1.0-6_all.deb && dpkg -i repo-mediaarea_1.0-6_all.deb && apt-get update \
-         && apt-get -y install mediainfo
-
-ARG      FITS_VER=1.2.0
+ARG         FITS_VER=1.2.0
 RUN         mkdir -p /tmp/phantomjs \
          && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar -xj --strip-components=1 -C /tmp/phantomjs \
          && mv /tmp/phantomjs/bin/phantomjs /usr/local/bin \
@@ -39,13 +37,16 @@ RUN         mkdir -p /tmp/phantomjs \
 ENV         PATH "$PATH:/usr/local/bin/fits-${FITS_VER}"
 
 RUN         ln -s /usr/bin/lsof /usr/sbin/ \
-#         && useradd -ms /bin/bash app \
-         && mkdir -p /home/app/avalon
-#         && chown app /home/app/avalon
-#USER        app
-WORKDIR     /home/app/avalon
+         && mkdir -p /home/app/avalon \
+         && mkdir -p /home/app/node_modules \
+         && chmod 777 /home/app/node_modules \
+         && mkdir -p /home/app/gems \
+         && chmod 777 /home/app/gems
 
-RUN      mkdir -p /home/app/node_modules && chmod 777 /home/app/node_modules
+VOLUME      /home/app/node_modules
+VOLUME      /home/app/gems
+
+WORKDIR     /home/app/avalon
 
 ENV         RAILS_ENV=development
 ADD         rails_init-dev.sh /

@@ -8,6 +8,7 @@ export HOME=/home/app/avalon
 
 echo " `date` : Bundle config"
 bundle config build.nokogiri --use-system-libraries
+bundle config path /home/app/gems
 
 echo " `date` : Bundle install"
 bundle install --with development test

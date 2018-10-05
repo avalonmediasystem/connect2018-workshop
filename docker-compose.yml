@@ -61,6 +61,8 @@ services:
       - solr
       - redis
     environment:
+      - HOME=/home/app
+      - BUNDLE_PATH=/home/app/gems
       - REDIS_HOST=redis
       - DATABASE_URL=postgresql://postgres@db/postgres         
       - FEDORA_URL=http://fedora:8080/fedora/rest
@@ -68,7 +70,7 @@ services:
       - SECRET_KEY_BASE=3fe397575565365108556c3e5549f139e8078a8ec8fd2675a83de96289b30550a266ac04488d7086322efbe573738e7b3ae005b2e3d9afd718aa337fa5e329cf
     volumes:
       - .:/home/app/avalon
-      - bundle:/usr/local/bundle
+      - bundle:/home/app/gems
       - npms:/home/app/node_modules
     ports:
       - 3000:3000 
