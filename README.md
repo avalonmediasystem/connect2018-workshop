@@ -19,15 +19,14 @@ Link to presentation slides will eventually go here.
 1. `docker-compose up`
 
 1. Setup initial admin set:
-  1. Go to http://localhost:3000
+    - Go to http://localhost:3000
 
-  1. Go to Login then Sign up.  Register with the email `archivist1@example.com` and any password.
+    - Go to Login then Sign up.  Register with the email `archivist1@example.com` and any password.
 
-  1. Click on Collections in the left sidebar
+    - Click on Collections in the left sidebar
 
-  1. Click New Collection and select Admin Set.  Give the admin set any title and save.
+    - Click New Collection and select Admin Set.  Give the admin set any title and save.
 
-1. Enter the rails container: `docker-compose exec avalon /bin/bash`
 
 ## Introducing the Hyrax-iiif_av Plugin
 
@@ -44,6 +43,8 @@ Link to presentation slides will eventually go here.
 
 1. Ingest a video file into a new work and look at native html5 player and fairly empty IIIF Presentation 2.0 manifest.
 Let's make it more awesomer! :unicorn:
+
+1. Enter the rails container: `docker-compose exec avalon /bin/bash`
 
 1. Add `hyrax-iiif_av` to `Gemfile`:
 ```
@@ -102,6 +103,8 @@ Go back to video work and see the new player and inspect the IIIF Presentation 3
   - Dashboard to monitor running, errored, and completed encodes
 
 ### Let's do it!
+
+1. Enter the rails container: `docker-compose exec avalon /bin/bash`
 
 1. Add `hyrax-active_encode` to `Gemfile`:
 ```
