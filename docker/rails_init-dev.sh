@@ -8,14 +8,12 @@ export HOME=/home/app/avalon
 
 echo " `date` : Bundle config"
 bundle config build.nokogiri --use-system-libraries
-bundle config path /home/app/gems
 
 echo " `date` : Bundle install"
-bundle install --with development test
+bundle install --local --with development test
 
 echo " `date` : Yarn install"
-yarn config set modules-folder /home/app/node_modules
-yarn install
+yarn install --offline
 
 echo " `date` : Remove server pid"
 rm -f tmp/pids/server.pid

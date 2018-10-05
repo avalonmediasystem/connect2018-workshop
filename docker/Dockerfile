@@ -7,7 +7,6 @@ RUN         curl -sS http://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
  
 RUN         apt-get update && apt-get upgrade -y build-essential nodejs \
          && apt-get install -y --force-yes -t jessie-backports \
-            mediainfo \
             x264 \
             cmake \
             pkg-config \
@@ -22,6 +21,9 @@ RUN         apt-get update && apt-get upgrade -y build-essential nodejs \
             openjdk-8-jre-headless \
             ca-certificates-java \
          && rm -rf /var/lib/apt/lists/*
+
+RUN      wget https://mediaarea.net/repo/deb/repo-mediaarea_1.0-6_all.deb && dpkg -i repo-mediaarea_1.0-6_all.deb && apt-get update \
+         && apt-get -y install mediainfo
 
 ARG      FITS_VER=1.2.0
 RUN         mkdir -p /tmp/phantomjs \
@@ -42,6 +44,8 @@ RUN         ln -s /usr/bin/lsof /usr/sbin/ \
 #         && chown app /home/app/avalon
 #USER        app
 WORKDIR     /home/app/avalon
+
+RUN      mkdir -p /home/app/node_modules && chmod 777 /home/app/node_modules
 
 ENV         RAILS_ENV=development
 ADD         rails_init-dev.sh /
