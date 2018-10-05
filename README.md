@@ -12,11 +12,9 @@ Link to presentation slides will eventually go here.
 
 1. `git clone https://github.com/avalonmediasystem/connect2018-workshop.git`
 
-1.  `cd connect2018-workshop`
+1. `cd connect2018-workshop`
 
-1. Use current user as the user for Avalon container `` export AVALON_UID=`id -u` AVALON_GID=`id -g` ``
-
-1. `docker-compose up`
+1. `./start.sh` to setup and start the Docker stack
 
 1. Setup initial admin set:
     - Go to http://localhost:3000
@@ -44,7 +42,7 @@ Link to presentation slides will eventually go here.
 1. Ingest a video file into a new work and look at native html5 player and fairly empty IIIF Presentation 2.0 manifest.
 Let's make it more awesomer! :unicorn:
 
-1. Enter the rails container: `docker-compose exec avalon /bin/bash`
+1. Enter the rails container: `./connect.sh`
 
 1. Add `hyrax-iiif_av` to `Gemfile`:
 ```
@@ -104,7 +102,7 @@ Go back to video work and see the new player and inspect the IIIF Presentation 3
 
 ### Let's do it!
 
-1. Enter the rails container: `docker-compose exec avalon /bin/bash`
+1. Enter the rails container: `./connect.sh`
 
 1. Add `hyrax-active_encode` to `Gemfile`:
 ```
