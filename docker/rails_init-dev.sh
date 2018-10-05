@@ -10,10 +10,10 @@ echo " `date` : Bundle config"
 bundle config build.nokogiri --use-system-libraries
 
 echo " `date` : Bundle install"
-bundle install --local --with development test
+bundle install --with development test
 
 echo " `date` : Yarn install"
-yarn install --offline
+yarn install
 
 echo " `date` : Remove server pid"
 rm -f tmp/pids/server.pid
