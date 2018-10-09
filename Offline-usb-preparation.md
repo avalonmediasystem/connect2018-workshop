@@ -1,6 +1,7 @@
 ## Setup
+- Navigate to where the USB volume is mounted
 ```
-docker load workshop_images.tar
+docker load -i workshop_images.tar
 ```
 
 ## Hyrax-iiif_av
