@@ -76,7 +76,7 @@ Go back to video work and see the new player and inspect the IIIF Presentation 3
 
 ### How does it work?
 
-- How do I add a custom IIIF viewer?
+- How do I add a custom IIIF viewer? (https://github.com/avalonmediasystem/connect2018-workshop/blob/master/Customizing-the-iiif-viewer.md)
 - How do I include structure metadata in my manifests?
 - Why did you choose react and how does it work within a hyrax app?
 - Why did you choose mediaelement.js for the player?
@@ -131,7 +131,8 @@ docker-compose restart avalon
  - How is it indexing it into solr?
  - How does it call ActiveEncode?
  - How does it store and serve derivative files?
- - How do I configure it to build different outputs with ffmpeg?
+ - How do I configure it to build different outputs with ffmpeg? (https://github.com/avalonmediasystem/connect2018-workshop/blob/master/Customizing-encoding.md)
+ - How do I configure it to use a custom ActiveEncode::Base subclass? (https://github.com/avalonmediasystem/connect2018-workshop/blob/master/Customizing-encoding.md)
  - How do I use Amazon Elastic Transcoder?
  - How do I check on the status of an encode?
  - How do I use the callbacks?
