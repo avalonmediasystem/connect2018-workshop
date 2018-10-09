@@ -49,7 +49,7 @@ end
 
 Add the following line to `config/initializers/hyrax.rb`:
 ```
-Hyrax::ActiveEncode::ActiveEncodeDerivativeService.default_encode_class = BetterCustomEncode
+Hyrax::ActiveEncode::ActiveEncodeDerivativeService.default_encode_class = CustomEncode
 ```
 
 Restart the avalon container: `docker-compose restart avalon`
