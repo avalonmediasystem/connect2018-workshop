@@ -2,9 +2,9 @@
 
 The start of fulfilling the promise of the componentization of Avalon from Samvera Connect 2017.
 
-## Background
+## Background Presentation
 
-Link to presentation slides will eventually go here.
+https://docs.google.com/presentation/d/1RGcTRwfDxIwRYkrkjRFLX5gUtRKoPKGmzylfQpGgVcs/edit?usp=sharing
 
 ## Getting Started
 
